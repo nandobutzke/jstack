@@ -11,5 +11,12 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'class-methods-use-this': 'off',
+    'array-callback-return': 'off',
+    'linebreak-style': 'off',
+    'consistent-return': 'off',
+    'no-unused-expressions': 'off',
+    'prefer-const': 'off',
+    camelcase: 'off',
   },
 };
