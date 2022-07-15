@@ -18,5 +18,6 @@ module.exports = {
     'no-unused-expressions': 'off',
     'prefer-const': 'off',
     camelcase: 'off',
+    'no-unused-vars': ['next', { argsIgnorePatterns: 'next' }],
   },
 };
