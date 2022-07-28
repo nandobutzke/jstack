@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { PostHeader } from './PostHeader';
 
 export default function Post({ post, onRemove }) {
-    const [isRead, setIsRead] = useState(false);
-
     return (
         <>
             <article>
-                <strong>
-                    <input type="checkbox" onClick={() => setIsRead((prevState) => !prevState)} />{isRead ? <s>{post.title}</s> : post.title}
-                </strong>
-                <br />
+                <PostHeader post={post} onRemove={onRemove} />
+                    <br />
                 <small>{post.subtitle}</small>
-                <button onClick={() => onRemove(post.id)}>Remover</button>
-                <br />
+                    <br />
                 <small>Likes: {post.likes}</small>
             </article>
             <br />
