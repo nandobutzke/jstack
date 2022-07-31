@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from './Button';
+import { Button } from '../Button';
 
 export function PostHeader({ post, onRemove }) {
     const [isRead, setIsRead] = useState(false);

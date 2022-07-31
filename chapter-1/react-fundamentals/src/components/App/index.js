@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Post from './Post';
-import Header from './Header';
-import { ThemeProvider } from './ThemeContext';
-import { Button } from './Button';
+import Post from '../Post';
+import Header from '../Header';
+import { ThemeProvider } from '../../context/ThemeContext';
+import { Button } from '../Button';
 
 export function App() {
     const [posts, setPosts] = useState([
@@ -11,15 +11,13 @@ export function App() {
         { id: Math.random(), title: 'Título do post 03', subtitle: 'Subtítulo do post 03', likes: 20, removed: false },
     ]);
 
-    console.log(posts);
-
     function handleUpdatePosts() {
         setPosts((prevState) => [...prevState, { 
                 id: Math.random(), 
                 title: `Título do post 0${prevState.length + 1}`, 
                 subtitle: `Subtítulo do post 0${prevState.length + 1}`, 
                 likes: 10,
-                read: false 
+                removed: false 
             }
         ])
     }
@@ -30,7 +28,6 @@ export function App() {
             ? { ...post, removed: true }
             : { ...post }
         ));
-        console.log(posts)
     }
 
     return (
