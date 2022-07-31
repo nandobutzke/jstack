@@ -8,7 +8,13 @@ export function PostHeader({ post, onRemove }) {
     return (
         <>
             <strong>
-                <input type="checkbox" onClick={() => setIsRead((prevState) => !prevState)} />{isRead ? <s>{post.title}</s> : post.title}
+                <input 
+                    type="checkbox" 
+                    onClick={() => 
+                        setIsRead((prevState) => !prevState)
+                    } 
+                />
+                {isRead ? <s>{post.title}</s> : post.title}
             </strong>
             <Button onClick={() => onRemove(post.id)}>
                 Remover
@@ -21,6 +27,6 @@ PostHeader.propTypes = {
     post: PropTypes.shape({
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
-    }),
+    }).isRequired,
     onRemove: PropTypes.func.isRequired,
 }

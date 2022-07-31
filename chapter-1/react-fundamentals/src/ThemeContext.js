@@ -7,7 +7,9 @@ export function ThemeProvider({ children }) {
 
     function handleToggleTheme() {
         setTheme((prevState) => (
-            prevState === 'dark' ? 'light' : 'dark'
+            prevState === 'dark' 
+            ? 'light' 
+            : 'dark'
         ))
     }
 

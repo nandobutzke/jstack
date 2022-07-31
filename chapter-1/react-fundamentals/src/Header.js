@@ -3,14 +3,19 @@ import PropTypes from 'prop-types';
 import { Button } from './Button';
 import { ThemeContext } from './ThemeContext';
 
+import styles from './Header.scss';
+
 export default function Header(props) {
     const { handleToggleTheme } = useContext(ThemeContext);
 
     return (
-        <>
-            <h1>JStack's Blog</h1><Button onClick={() => handleToggleTheme()}>Alterar Tema</Button>
+        <header>
+            <h1 className={styles.title}>JStack's Blog</h1>
+            <Button onClick={() => handleToggleTheme()}>
+                Alterar Tema
+            </Button>
             {props.children}
-        </>
+        </header>
     );
 }
 

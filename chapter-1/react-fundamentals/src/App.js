@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import Post from './Post';
 import Header from './Header';
-
-import './styles/global.css';
 import { ThemeProvider } from './ThemeContext';
 import { Button } from './Button';
 
 export function App() {
     const [posts, setPosts] = useState([
-        { id: Math.random(), title: 'Título do post 01', subtitle: 'Subtítulo do post 01', likes: 10 },
-        { id: Math.random(), title: 'Título do post 02', subtitle: 'Subtítulo do post 02', likes: 15 },
-        { id: Math.random(), title: 'Título do post 03', subtitle: 'Subtítulo do post 03', likes: 20 },
+        { id: Math.random(), title: 'Título do post 01', subtitle: 'Subtítulo do post 01', likes: 10, removed: false },
+        { id: Math.random(), title: 'Título do post 02', subtitle: 'Subtítulo do post 02', likes: 15, removed: false },
+        { id: Math.random(), title: 'Título do post 03', subtitle: 'Subtítulo do post 03', likes: 20, removed: false },
     ]);
+
+    console.log(posts);
 
     function handleUpdatePosts() {
         setPosts((prevState) => [...prevState, { 
@@ -25,7 +25,12 @@ export function App() {
     }
 
     function handleRemovePost(postId) {
-        setPosts((prevState) => prevState.filter(post => post.id !== postId));
+        setPosts((prevState) => prevState.map(
+            post => post.id === postId 
+            ? { ...post, removed: true }
+            : { ...post }
+        ));
+        console.log(posts)
     }
 
     return (
