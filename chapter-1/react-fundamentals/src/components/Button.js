@@ -1,19 +1,17 @@
 import React, { useContext } from 'react';
 
 import { ThemeContext } from '../context/ThemeContext';
+import { StyledButton } from '../styles/StyledButton';
 
 export function Button({ onClick, children }) {
     const { theme } = useContext(ThemeContext);
 
     return (
-        <button 
+        <StyledButton 
             onClick={onClick}
-            style={{
-                color: theme === 'dark' ? '#fff' : '#000',
-                background: theme === 'dark' ? '#000' : '#fff',
-            }}
+            theme={theme}
         >
             {children}
-        </button>
+        </StyledButton>
     );
 }

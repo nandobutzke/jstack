@@ -3,6 +3,7 @@ import Post from '../Post';
 import Header from '../Header';
 import { ThemeProvider } from '../../context/ThemeContext';
 import { Button } from '../Button';
+import { Title } from '../../styles/Title';
 
 export function App() {
     const [posts, setPosts] = useState([
@@ -33,7 +34,7 @@ export function App() {
     return (
         <ThemeProvider>
             <Header>
-                <h2>Posts da semana</h2>
+                <Title as="h3">Posts da semana</Title>
                 <Button onClick={handleUpdatePosts}>Atualizar</Button>
             </Header>
 

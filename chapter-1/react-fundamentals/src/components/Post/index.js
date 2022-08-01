@@ -1,24 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PostHeader } from './PostHeader';
-
-import styles from './Post.scss';
+import { Subtitle, Rate } from './styles';
 
 export default function Post({ post, onRemove }) {
     return (
-        <article className={
-            post.removed === true 
-            ? styles.disabled 
-            : styles.post
-        }>
+        <article>
             <PostHeader 
                 post={post} 
                 onRemove={onRemove} 
             />
-                <br />
-            <small>{post.subtitle}</small>
-                <br />
-            <small>Likes: {post.likes}</small>
+            <Subtitle>{post.subtitle}</Subtitle>
+            <Rate>Likes: {post.likes}</Rate>
         </article>
     );
 }
