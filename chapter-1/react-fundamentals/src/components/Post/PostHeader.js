@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '../Button';
+import { StyledPostHeader } from './styles';
 
 export function PostHeader({ post, onRemove }) {
     const [isRead, setIsRead] = useState(false);
 
     return (
-        <>
+        <StyledPostHeader>
             <strong>
                 <input 
-                    type="checkbox" 
+                    type="checkbox"
+                    title="Marcar como lido" 
                     onClick={() => 
                         setIsRead((prevState) => !prevState)
                     } 
@@ -19,7 +21,7 @@ export function PostHeader({ post, onRemove }) {
             <Button onClick={() => onRemove(post.id)}>
                 Remover
             </Button>
-        </>
+        </StyledPostHeader>
     );
 }
 

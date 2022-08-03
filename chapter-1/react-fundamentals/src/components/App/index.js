@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import GlobalStyle from '../../styles/global';
 import Post from '../Post';
 import Header from '../Header';
-import { ThemeProvider } from '../../context/ThemeContext';
+import themes from '../../styles/themes';
+import { ThemeProvider } from 'styled-components';
 import { Button } from '../Button';
 import { Title } from '../../styles/Title';
 
@@ -11,6 +13,11 @@ export function App() {
         { id: Math.random(), title: 'Título do post 02', subtitle: 'Subtítulo do post 02', likes: 15, removed: false },
         { id: Math.random(), title: 'Título do post 03', subtitle: 'Subtítulo do post 03', likes: 20, removed: false },
     ]);
+    const [theme, setTheme] = useState('dark');
+
+    const currentTheme = useMemo(() => {
+        return themes[theme];
+    }, [theme]);
 
     function handleUpdatePosts() {
         setPosts((prevState) => [...prevState, { 
@@ -31,9 +38,17 @@ export function App() {
         ));
     }
 
+    function handleToggleTheme() {
+        setTheme(prevState => prevState === 'dark' ? 'light' : 'dark');
+    }
+
     return (
-        <ThemeProvider>
-            <Header>
+        <ThemeProvider theme={currentTheme}>
+            <GlobalStyle />
+            <Header 
+                handleToggleTheme={handleToggleTheme}
+                selectedTheme={theme}
+            >
                 <Title as="h3">Posts da semana</Title>
                 <Button onClick={handleUpdatePosts}>Atualizar</Button>
             </Header>
