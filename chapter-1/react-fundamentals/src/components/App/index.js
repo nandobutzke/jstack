@@ -4,14 +4,11 @@ import Post from '../Post';
 import Header from '../Header';
 import themes from '../../styles/themes';
 import { ThemeProvider } from 'styled-components';
-import { Button } from '../Button';
-import { Title } from '../../styles/Title';
 
 export function App() {
     const [posts, setPosts] = useState([
-        { id: Math.random(), title: 'Título do post 01', subtitle: 'Subtítulo do post 01', likes: 10, removed: false },
-        { id: Math.random(), title: 'Título do post 02', subtitle: 'Subtítulo do post 02', likes: 15, removed: false },
-        { id: Math.random(), title: 'Título do post 03', subtitle: 'Subtítulo do post 03', likes: 20, removed: false },
+        { id: Math.random(), title: 'Boas práticas para devs em início de carreira', subtitle: 'As principais lições e dicas compiladas para quem...', likes: 10, removed: false },
+        { id: Math.random(), title: 'Comunidade: guia prático de como contribuir para o ecossistema de tecnologia', subtitle: 'Fazer parte de comunidades techs é uma qualidade...', likes: 15, removed: false },
     ]);
     const [theme, setTheme] = useState('dark');
 
@@ -22,7 +19,7 @@ export function App() {
     function handleUpdatePosts() {
         setPosts((prevState) => [...prevState, { 
                 id: Math.random(), 
-                title: `Título do post 0${prevState.length + 1}`, 
+                title: `Título do post 0${prevState.length + 1}`,
                 subtitle: `Subtítulo do post 0${prevState.length + 1}`, 
                 likes: 10,
                 removed: false 
@@ -49,8 +46,9 @@ export function App() {
                 handleToggleTheme={handleToggleTheme}
                 selectedTheme={theme}
             >
-                <Title as="h3">Posts da semana</Title>
-                <Button onClick={handleUpdatePosts}>Atualizar</Button>
+                <button onClick={handleUpdatePosts}>
+                    🔃
+                </button>
             </Header>
 
             <hr />

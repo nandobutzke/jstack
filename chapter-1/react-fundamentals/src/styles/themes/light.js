@@ -7,4 +7,6 @@ export default {
     textColor: '#111',
     headerBackgroundColor: '#aaa',
     postBackgroundColor: '#bbb',
+    removePostButtonColor: '#5E0000',
+    hrElementOpacity: 1
 };

@@ -1,64 +1,63 @@
 import styled, { css } from 'styled-components';
 
-export const StyledPostHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: 12px;
-
-  strong {
-    font-size: 20px;
-  }
-`;
-
 export const PostContainer = styled.article`
-    margin-top: 24px;
+  display: flex;
+  flex-direction: column;
 
-    padding: 10px 20px;
-    border-radius: 10px;
+  margin-top: 24px;
 
-    ${({ theme, removed }) => css`
-      background: ${ theme.postBackgroundColor};
-      color: ${ theme.textColor };
+  padding: 10px 24px;
+  border-radius: 10px;
 
-      opacity: ${ removed ? 0.3 : 1 };
-      cursor: ${ removed ? 'not-allowed' : 'auto' };
-    `}
+  ${({ theme, removed }) => css`
+    color: ${ theme.textColor };
 
+    opacity: ${ removed ? 0.3 : 1 };
 
+    button,
+    input {
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  `}
 `;
 
 export const PostFooter = styled.div`
   display: flex;
   justify-content: space-between;
-
-`;
-
-export const Subtitle = styled.small`
-`;
-
-export const Rate = styled.span`
-    opacity: 0.7;
-`;
-
-export const StyledLikeButton = styled.button`
-  display: flex;
-  justify-content: flex-end;
   align-items: center;
 
-  gap: 10px;
+  gap: ${({ theme }) => theme.spacing.small}px;
+`;
 
-  background: rgba(25, 171, 255, 0.3);
+export const PostFooterActions = styled.div`
+  display: flex;
+  align-items: center;
 
-  border: 1px solid #19abff;
-  padding: 0.5rem 1rem;
-  color: ${({ theme }) => theme.textColor };
+  gap: ${({ theme }) => theme.spacing.small}px;
 
-  border-radius: 10px;
 
-  span {
-    opacity: 1;
-  }
+`;
 
+export const DeleteButton = styled.button`
+    background: #f003;
+    border: #f00 1px solid;
+
+    display: flex;
+    align-items: center;
+    
+    gap: 10px;
+    
+    padding: 10px 20px;
+    font-size: ${({ theme }) => theme.spacing.medium}px;
+
+    ${({ theme }) => css`
+      color: ${theme.textColor};
+      border-radius: ${theme.borderRadius};
+
+      svg {
+        color: ${theme.textColor};
+      }
+    `}
 `;
