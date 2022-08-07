@@ -2,13 +2,20 @@ import React, { useState } from 'react';
 import { Rate, StyledLikeButton } from './styles';
 import { FaThumbsUp } from 'react-icons/fa';
 
-export function LikeButton({ disabled }) {
+export function LikeButton({ isDisabled }) {
     const [likes, setLikes] = useState(0);
+    
+    function handleLikePost() {
+        setLikes((prevState) => prevState + 1);
+    }
 
     return (
-        <StyledLikeButton onClick={() => setLikes(likes + 1)} disabled={disabled}>
+        <StyledLikeButton 
+            onClick={handleLikePost} 
+            disabled={isDisabled}
+        >
             <FaThumbsUp />
-            <Rate>{likes}</Rate>
+            {likes != 0 && <Rate>{likes}</Rate>}
         </StyledLikeButton>
     );
 }

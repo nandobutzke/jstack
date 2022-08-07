@@ -11,7 +11,6 @@ export const StyledLikeButton = styled.button`
   background: #1113;
   border: #111 1px solid;
 
-
   ${({ theme }) => css`
     font-size: ${theme.spacing.medium}px;
 
@@ -25,5 +24,6 @@ export const StyledLikeButton = styled.button`
 `;
 
 export const Rate = styled.span`
+    font-size: 14px;
     opacity: 0.7;
 `;

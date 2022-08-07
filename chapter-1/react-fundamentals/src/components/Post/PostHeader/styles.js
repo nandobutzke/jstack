@@ -8,8 +8,8 @@ export const StyledPostHeader = styled.div`
   margin-bottom: 12px;
 `;
 
-export const Subtitle = styled.small`
+export const Subtitle = styled.span`
   margin-top: 8px;
-  font-size: ${({ theme }) => theme.spacing.medium}px;
+  
   opacity: 0.7;
 `;

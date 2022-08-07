@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import GlobalStyle from '../../styles/global';
 import Post from '../Post';
 import Header from '../Header';
@@ -10,10 +10,22 @@ export function App() {
         { id: Math.random(), title: 'Boas práticas para devs em início de carreira', subtitle: 'As principais lições e dicas compiladas para quem...', likes: 10, removed: false },
         { id: Math.random(), title: 'Comunidade: guia prático de como contribuir para o ecossistema de tecnologia', subtitle: 'Fazer parte de comunidades techs é uma qualidade...', likes: 15, removed: false },
     ]);
-    const [theme, setTheme] = useState('dark');
+    const [theme, setTheme] = useState('dark', () => {
+        const storageTheme = localStorage.getItem('theme');
+
+        if (storageTheme) {
+            return JSON.parse(storageTheme);
+        }
+
+        return '';
+    });
+
+    useEffect(() => {
+        localStorage.setItem('theme', JSON.stringify(theme));
+    }, [theme]);
 
     const currentTheme = useMemo(() => {
-        return themes[theme];
+        return themes[theme] || themes.dark;
     }, [theme]);
 
     function handleUpdatePosts() {
@@ -50,11 +62,7 @@ export function App() {
                     🔃
                 </button>
             </Header>
-
-            <hr />
-
-            {
-                posts.length != 0 
+            {posts.length != 0 
                 ? posts.map((post) => (
                     <Post 
                         key={post.id}

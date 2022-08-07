@@ -4,8 +4,6 @@ export const PostContainer = styled.article`
   display: flex;
   flex-direction: column;
 
-  margin-top: 24px;
-
   padding: 10px 24px;
   border-radius: 10px;
 
@@ -43,8 +41,9 @@ export const PostFooterInfo = styled.div`
   
     gap: ${({ theme }) => theme.spacing.small}px;
 
-    span {
+    small {
       opacity: 0.7;
+      font-size: ${({ theme }) => theme.spacing.medium}px;
     }
   }
 `;
@@ -63,9 +62,9 @@ export const DeleteButton = styled.button`
     display: flex;
     align-items: center;
     
+    padding: 0.5rem 1rem;
     gap: 10px;
     
-    padding: 10px 20px;
     font-size: ${({ theme }) => theme.spacing.medium}px;
 
     ${({ theme }) => css`

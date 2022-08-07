@@ -16,21 +16,21 @@ export default function Post({ post, onRemove }) {
                     <PostFooterInfo>
                         <div>
                             <FaStopwatch />
-                            <span>
+                            <small>
                                 {new Date(Date.now()).toLocaleString('pt-br', {
                                     day: '2-digit',
                                     month: 'long',
                                     year: 'numeric'
                                 })}
-                            </span>
+                            </small>
                         </div>
                         <div>
                             <FaUserAlt />
-                            <span>Fernando Butzke</span>
+                            <small>Fernando Butzke</small>
                         </div>
                     </PostFooterInfo>
                     <PostFooterActions>
-                        <LikeButton disabled={post.removed} />
+                        <LikeButton isDisabled={post.removed} />
                         <DeleteButton onClick={() => onRemove(post.id)} disabled={post.removed}>
                             <FaTrashAlt />
                         </DeleteButton>

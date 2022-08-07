@@ -8,5 +8,5 @@ export default {
     headerBackgroundColor: '#aaa',
     postBackgroundColor: '#bbb',
     removePostButtonColor: '#5E0000',
-    hrElementOpacity: 1
+    hrElementOpacity: 0.3
 };
