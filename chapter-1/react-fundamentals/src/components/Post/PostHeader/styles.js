@@ -11,5 +11,5 @@ export const StyledPostHeader = styled.div`
 export const Subtitle = styled.small`
   margin-top: 8px;
   font-size: ${({ theme }) => theme.spacing.medium}px;
-  opacity: 0.8;
+  opacity: 0.7;
 `;

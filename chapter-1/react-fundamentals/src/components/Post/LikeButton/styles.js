@@ -6,11 +6,11 @@ export const StyledLikeButton = styled.button`
   align-items: center;
 
   gap: 10px;
-  
-  background: rgba(25, 171, 255, 0.3);
-  
-  border: 1px solid #19abff;
   padding: 0.5rem 1rem;
+  
+  background: #1113;
+  border: #111 1px solid;
+
 
   ${({ theme }) => css`
     font-size: ${theme.spacing.medium}px;

@@ -29,6 +29,24 @@ export const PostFooter = styled.div`
   align-items: center;
 
   gap: ${({ theme }) => theme.spacing.small}px;
+
+`;
+
+export const PostFooterInfo = styled.div`
+  display: flex;
+  align-items: center;
+  
+  gap: ${({ theme }) => theme.spacing.large}px;
+
+  div {
+    display: flex;
+  
+    gap: ${({ theme }) => theme.spacing.small}px;
+
+    span {
+      opacity: 0.7;
+    }
+  }
 `;
 
 export const PostFooterActions = styled.div`
@@ -36,13 +54,11 @@ export const PostFooterActions = styled.div`
   align-items: center;
 
   gap: ${({ theme }) => theme.spacing.small}px;
-
-
 `;
 
 export const DeleteButton = styled.button`
-    background: #f003;
-    border: #f00 1px solid;
+    background: #1113;
+    border: #111 1px solid;
 
     display: flex;
     align-items: center;

@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
 
         button {
             background: none;
-            border: none;<s></s>
+            border: none;
             font-size: ${theme.spacing.large}px;
         }
     `};

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PostHeader } from './PostHeader';
 import { LikeButton } from './LikeButton'
-import { PostContainer, PostFooter, PostFooterActions, DeleteButton } from './styles';
-import { FaTrashAlt } from 'react-icons/fa';
+import { PostContainer, PostFooter, PostFooterInfo, PostFooterActions, DeleteButton } from './styles';
+import { FaTrashAlt, FaStopwatch, FaUserAlt } from 'react-icons/fa';
 
 export default function Post({ post, onRemove }) {
     return (
@@ -13,13 +13,22 @@ export default function Post({ post, onRemove }) {
                     post={post}
                 />
                 <PostFooter>
-                    <span>
-                        {new Date(Date.now()).toLocaleString('pt-br', {
-                            day: '2-digit',
-                            month: 'long',
-                            year: 'numeric'
-                        })}
-                    </span>
+                    <PostFooterInfo>
+                        <div>
+                            <FaStopwatch />
+                            <span>
+                                {new Date(Date.now()).toLocaleString('pt-br', {
+                                    day: '2-digit',
+                                    month: 'long',
+                                    year: 'numeric'
+                                })}
+                            </span>
+                        </div>
+                        <div>
+                            <FaUserAlt />
+                            <span>Fernando Butzke</span>
+                        </div>
+                    </PostFooterInfo>
                     <PostFooterActions>
                         <LikeButton disabled={post.removed} />
                         <DeleteButton onClick={() => onRemove(post.id)} disabled={post.removed}>
