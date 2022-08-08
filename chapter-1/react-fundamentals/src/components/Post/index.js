@@ -17,16 +17,12 @@ export default function Post({ post, onRemove }) {
                         <div>
                             <FaStopwatch />
                             <small>
-                                {new Date(Date.now()).toLocaleString('pt-br', {
-                                    day: '2-digit',
-                                    month: 'long',
-                                    year: 'numeric'
-                                })}
+                                {post.date}
                             </small>
                         </div>
                         <div>
                             <FaUserAlt />
-                            <small>Fernando Butzke</small>
+                            <small>{post.author}</small>
                         </div>
                     </PostFooterInfo>
                     <PostFooterActions>
@@ -47,6 +43,8 @@ Post.propTypes = {
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         subtitle: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
         likes: PropTypes.number.isRequired,
         removed: PropTypes.bool.isRequired
     }).isRequired,

@@ -1,21 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { HeaderContainer,  } from './styles';
 
-export default function Header({ selectedTheme, handleToggleTheme, children }) {
+import { HeaderContainer } from './styles';
+
+import { usePost } from '../../hooks/usePost';
+import { useManagerTheme } from '../../hooks/useManagerTheme';
+
+export default function Header() {
+    const { theme, handleToggleTheme } = useManagerTheme();
+    const { handleUpdatePosts } = usePost();
+
     return (
         <HeaderContainer>
             <h1>JStack's Blog</h1>
             <div>
-                {children}
+                <button onClick={handleUpdatePosts}>
+                    🔃
+                </button>
                 <button onClick={handleToggleTheme}>
-                    {selectedTheme === 'dark' ? '🌞' : '🌚'}
+                    {theme === 'dark' ? '🌞' : '🌚'}
                 </button>
             </div>
         </HeaderContainer>
     );
-}
-
-Header.propTypes = {
-    children: PropTypes.node.isRequired
 }

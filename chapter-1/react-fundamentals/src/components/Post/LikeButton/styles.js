@@ -18,7 +18,7 @@ export const StyledLikeButton = styled.button`
     border-radius: ${theme.borderRadius};
 
     svg {
-        color: #ffe000;
+        color: ${theme.textColor};
     }
   `}
 `;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { Rate, StyledLikeButton } from './styles';
 import { FaThumbsUp } from 'react-icons/fa';
 
