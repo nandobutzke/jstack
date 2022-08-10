@@ -14,7 +14,7 @@ export default function Header() {
             <h1>JStack's Blog</h1>
             <div>
                 <button onClick={handleUpdatePosts}>
-                    🔃
+                    <span>Atualizar</span>
                 </button>
                 <button onClick={handleToggleTheme}>
                     {theme === 'dark' ? '🌞' : '🌚'}

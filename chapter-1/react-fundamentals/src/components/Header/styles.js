@@ -5,7 +5,6 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
 
-    
     ${({ theme }) => css`
         padding: 5px ${theme.spacing.large}px;
 
@@ -17,7 +16,11 @@ export const HeaderContainer = styled.header`
             background: none;
             border: none;
             font-size: ${theme.spacing.large}px;
+
+            span {
+                color: ${theme.textColor};
+                font-size: ${theme.spacing.medium}px;
+            }
         }
     `};
-
 `;

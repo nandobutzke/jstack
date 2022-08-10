@@ -54,25 +54,3 @@ export const PostFooterActions = styled.div`
 
   gap: ${({ theme }) => theme.spacing.small}px;
 `;
-
-export const DeleteButton = styled.button`
-    background: #1113;
-    border: #111 1px solid;
-
-    display: flex;
-    align-items: center;
-    
-    padding: 0.5rem 1rem;
-    gap: 10px;
-    
-    font-size: ${({ theme }) => theme.spacing.medium}px;
-
-    ${({ theme }) => css`
-      color: ${theme.textColor};
-      border-radius: ${theme.borderRadius};
-
-      svg {
-        color: ${theme.textColor};
-      }
-    `}
-`;

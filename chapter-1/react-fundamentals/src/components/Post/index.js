@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PostHeader } from './PostHeader';
 import { LikeButton } from './LikeButton'
-import { PostContainer, PostFooter, PostFooterInfo, PostFooterActions, DeleteButton } from './styles';
+import { PostContainer, PostFooter, PostFooterInfo, PostFooterActions } from './styles';
 import { FaTrashAlt, FaStopwatch, FaUserAlt } from 'react-icons/fa';
+import { Button } from '../Button';
 
 export default function Post({ post, onRemove }) {
     return (
@@ -27,9 +28,9 @@ export default function Post({ post, onRemove }) {
                     </PostFooterInfo>
                     <PostFooterActions>
                         <LikeButton isDisabled={post.removed} />
-                        <DeleteButton onClick={() => onRemove(post.id)} disabled={post.removed}>
+                        <Button onClick={() => onRemove(post.id)} disabled={post.removed}>
                             <FaTrashAlt />
-                        </DeleteButton>
+                        </Button>
                     </PostFooterActions>
                 </PostFooter>
             </PostContainer>
