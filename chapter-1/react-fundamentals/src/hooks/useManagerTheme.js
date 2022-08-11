@@ -5,6 +5,7 @@ import React, {
     createContext, 
     useContext 
 } from 'react';
+import { ThemeProvider } from 'styled-components';
 import themes from '../styles/themes';
 
 export const ThemeContext = createContext('');
@@ -37,8 +38,10 @@ export function ThemeManagerProvider({ children }) {
     }
 
     return (
-        <ThemeContext.Provider value={{ theme, currentTheme, handleToggleTheme }}>
-            {children}
+        <ThemeContext.Provider value={{ theme, handleToggleTheme }}>
+            <ThemeProvider theme={currentTheme}>
+                {children}
+            </ThemeProvider>
         </ThemeContext.Provider>
     );
 }
