@@ -26,14 +26,47 @@ class App extends React.Component {
   handleToggleTheme = () => {
     this.setState(prevState =>  ({ theme: prevState.theme === 'dark' ? 'light' : 'dark' }));
   } */
+
+  state = {
+    changed: false
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount executed');
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate executed', {
+      currentState: this.state,
+      prevProps,
+      prevState
+    })
+  }
+
+  componentDidCatch(error, info) {
+    console.log('componentDidCatch executed', { error, info })
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldComponentUpdate', { 
+      currentState: this.state,
+      nextProps,
+      nextState
+    })
+
+    return false;
+  }
   
   render() {
-    //const { theme } = this.state;
+    console.log('rendered');
 
     return (
       <ThemeProvider>
+        <button onClick={() => this.setState(prevState => ({ changed: prevState.changed === false ? true : false }))}>
+          change state
+        </button>
         <ThemeContext.Consumer>
-          {({ theme, handleToggleTheme }) => (
+          {({ theme }) => (
             <StyledThemeProvider theme={themes[theme] || themes.dark}>
               <GlobalStyle />
               <Layout />

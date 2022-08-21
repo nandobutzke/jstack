@@ -7,11 +7,11 @@ import { Footer } from '../Footer';
 export default class Layout extends Component {
   render() {
     return (
-      <>
-        <Header />
-        <PostsList />
-        <Footer />
-      </>
+        <>
+          <Header />
+          <PostsList />
+          <Footer />
+        </>
     );
   }
 }
